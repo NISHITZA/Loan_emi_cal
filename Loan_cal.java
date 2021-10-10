@@ -7,7 +7,7 @@ class Loan_cal
     public static void main(String args[])
     {
         Scanner sc = new Scanner(System.in);
-        int choice_flag = 0;
+        int choice_flag = 1;
         ArrayList<Integer> loan_list = new ArrayList<Integer>();
         int loan_choice = 0;
         while(choice_flag==1){
@@ -67,8 +67,6 @@ class Loan_cal
             catch(Exception e){
                 System.out.println("Please enter the correct choice");
             }
-
         }
-        sc.close();
     }
 }

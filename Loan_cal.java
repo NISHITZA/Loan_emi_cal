@@ -52,15 +52,38 @@ class Loan_cal
                                     expense_flag=0;
                             }
                             int total_expense = 0;
+                            
+                            System.out.println("Enter the monthly EMI paid by you");
+                            int monthly_emi = sc.nextInt();
+
                             Iterator<Integer> itr=monthly_expense.iterator();  
                             while(itr.hasNext()){ 
                                 total_expense = total_expense + itr.next();
                             }
-                            System.out.println("The total expense is "+total_expense);
 
+                            System.out.println("The total expense is "+(total_expense + monthly_emi));
+                            double emi_possible_amount = 0.3*monthly_income;
+                            double remaining_possible_amount = emi_possible_amount - monthly_emi;
 
+                            if(remaining_possible_amount<amount){
 
+                                System.out.println("EMI crosses 30% of monthly amount, thus new loan is not recommended");
+                                choice_flag=0;
+                                break;
+                            }
+
+                            int month_count =0;
+                            double temp_value = amount;
+
+                            while(temp_value>0){
+                                temp_value = temp_value - remaining_possible_amount;
+                                month_count++;
+                            }
+                            System.out.println("The EMI details");
+                            System.out.println("EMI amount per month "+remaining_possible_amount);
+                            System.out.println("Number of months EMI to be paid "+month_count);
                             break;
+                            
                     case 3: System.out.println("Exit option selection");
                             choice_flag=0;
                             break;

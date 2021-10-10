@@ -1,0 +1,42 @@
+[1mdiff --git a/Loan_cal.java b/Loan_cal.java[m
+[1mindex 2e683ed..835beef 100644[m
+[1m--- a/Loan_cal.java[m
+[1m+++ b/Loan_cal.java[m
+[36m@@ -31,7 +31,30 @@[m [mclass Loan_cal[m
+                                 System.out.println("Please select the loan option first");[m
+                                 continue;[m
+                             }[m
+[32m+[m[32m                            System.out.println("Enter the Loan Amount");[m
+[32m+[m[32m                            int amount = sc.nextInt();[m
+[32m+[m[32m                            loan_list.add(amount);[m
+ [m
+[32m+[m[32m                            int monthly_income = sc.nextInt();[m
+[32m+[m[32m                            ArrayList<Integer> monthly_expense = new ArrayList<Integer>();[m
+[32m+[m
+[32m+[m[32m                            int expense_flag = 1;[m
+[32m+[m[32m                            while(expense_flag==1){[m
+[32m+[m[32m                                System.out.println("Enter your monthly expenses \n");[m
+[32m+[m[32m                                int expense = sc.nextInt();[m
+[32m+[m[32m                                monthly_expense.add(expense);[m
+[32m+[m[41m                                [m
+[32m+[m[32m                                System.out.println("Do you have other expenses ? Y/N ");[m
+[32m+[m[32m                                String n = sc.nextLine();[m
+[32m+[m[32m                                if(n=="Y" && n=="y"){[m
+[32m+[m[32m                                    expense_flag=0;[m
+[32m+[m[32m                                }[m
+[32m+[m[32m                            }[m
+[32m+[m[32m                            int total_expense = 0;[m
+[32m+[m[32m                            Iterator itr=monthly_expense.iterator();[m[41m  [m
+[32m+[m[32m                            while(itr.hasNext()){[m
+[32m+[m[32m                                System.out.println(itr.next());[m
+[32m+[m[32m                            }[m
+                             [m
+ [m
+                             break;[m
+[36m@@ -46,5 +69,6 @@[m [mclass Loan_cal[m
+             }[m
+ [m
+         }[m
+[32m+[m[32m        sc.close();[m
+     }[m
+ }[m

@@ -52,11 +52,14 @@ class Loan_cal
                                     expense_flag=0;
                             }
                             int total_expense = 0;
-                            Iterator itr=monthly_expense.iterator();  
-                            while(itr.hasNext()){
-                                System.out.println(itr.next());
+                            Iterator<Integer> itr=monthly_expense.iterator();  
+                            while(itr.hasNext()){ 
+                                total_expense = total_expense + itr.next();
                             }
-                            
+                            System.out.println("The total expense is "+total_expense);
+
+
+
                             break;
                     case 3: System.out.println("Exit option selection");
                             choice_flag=0;

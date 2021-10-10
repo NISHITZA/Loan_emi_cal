@@ -31,7 +31,30 @@ class Loan_cal
                                 System.out.println("Please select the loan option first");
                                 continue;
                             }
+                            System.out.println("Enter the Loan Amount");
+                            int amount = sc.nextInt();
+                            loan_list.add(amount);
 
+                            int monthly_income = sc.nextInt();
+                            ArrayList<Integer> monthly_expense = new ArrayList<Integer>();
+
+                            int expense_flag = 1;
+                            while(expense_flag==1){
+                                System.out.println("Enter your monthly expenses \n");
+                                int expense = sc.nextInt();
+                                monthly_expense.add(expense);
+                                
+                                System.out.println("Do you have other expenses ? Y/N ");
+                                String n = sc.nextLine();
+                                if(n=="Y" && n=="y"){
+                                    expense_flag=0;
+                                }
+                            }
+                            int total_expense = 0;
+                            Iterator itr=monthly_expense.iterator();  
+                            while(itr.hasNext()){
+                                System.out.println(itr.next());
+                            }
                             
 
                             break;
@@ -46,5 +69,6 @@ class Loan_cal
             }
 
         }
+        sc.close();
     }
 }

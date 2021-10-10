@@ -13,7 +13,7 @@ class Loan_cal
         while(choice_flag==1){
             System.out.println("Menu");
             System.out.println("1.Loan");
-            System.out.println("2.EMI calculator based on load");
+            System.out.println("2.EMI calculator based on loan");
             System.out.println("3.Exit");
             System.out.println("Please enter your choice");
             
@@ -25,7 +25,7 @@ class Loan_cal
                             System.out.println("2.Car Loan");
                             System.out.println("Enter the loan option");
                             loan_choice = sc.nextInt();
-                            break;
+
                     case 2: System.out.println("EMI calculation");
                             if(loan_choice==0){
                                 System.out.println("Please select the loan option first");
@@ -34,21 +34,22 @@ class Loan_cal
                             System.out.println("Enter the Loan Amount");
                             int amount = sc.nextInt();
                             loan_list.add(amount);
-
+                            System.out.println("Enter your monthly income");
                             int monthly_income = sc.nextInt();
                             ArrayList<Integer> monthly_expense = new ArrayList<Integer>();
 
                             int expense_flag = 1;
                             while(expense_flag==1){
-                                System.out.println("Enter your monthly expenses \n");
+                                System.out.println("Enter your monthly expenses");
                                 int expense = sc.nextInt();
                                 monthly_expense.add(expense);
                                 
-                                System.out.println("Do you have other expenses ? Y/N ");
-                                String n = sc.nextLine();
-                                if(n=="Y" && n=="y"){
+                                System.out.println("Do you have other expenses ?");
+                                System.out.println("1.Yes");
+                                System.out.println("2.No");
+                                int n = sc.nextInt();
+                                if(n==2)
                                     expense_flag=0;
-                                }
                             }
                             int total_expense = 0;
                             Iterator itr=monthly_expense.iterator();  
@@ -56,7 +57,6 @@ class Loan_cal
                                 System.out.println(itr.next());
                             }
                             
-
                             break;
                     case 3: System.out.println("Exit option selection");
                             choice_flag=0;
@@ -65,8 +65,10 @@ class Loan_cal
                     }
             }
             catch(Exception e){
-                System.out.println("Please enter the correct choice");
+                System.out.println("Please enter the correct choice "+e);
+                break;
             }
         }
+        sc.close();
     }
 }
